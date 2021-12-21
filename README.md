@@ -28,4 +28,5 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Context
 Based on the tutorial provided here https://www.youtube.com/watch?v=KZkRGm1xC_I which has the original code here https://github.com/developer-school/introduction-to-ngrx-store.
+
 This has used updated packages as of Angular 13. Differences in particular on how ngrx actions are created.
