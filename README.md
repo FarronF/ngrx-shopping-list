@@ -27,6 +27,6 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
 ## Context
-Based on the tutorial provided here https://www.youtube.com/watch?v=KZkRGm1xC_I which has the original code here https://github.com/developer-school/introduction-to-ngrx-store.
+Based on the tutorial provided here https://www.youtube.com/watch?v=KZkRGm1xC_I which has the original code using Angular 7 here https://github.com/developer-school/introduction-to-ngrx-store.
 
 This has used updated packages as of Angular 13. Differences in particular on how ngrx actions are created.
