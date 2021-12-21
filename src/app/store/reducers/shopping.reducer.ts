@@ -1,5 +1,5 @@
 import { Action, createReducer, on } from "@ngrx/store";
-import { addItem } from "../actions/shopping.actions";
+import { addItem, deleteItem } from "../actions/shopping.actions";
 import { ShoppingItem } from "../models/shopping-item.model";
 
 const initialState: ShoppingItem[] = [
@@ -17,6 +17,9 @@ const reducer = createReducer(
     initialState,
     on(addItem, (state, action) => {
        return [...state, action.payload]
+    }),
+    on(deleteItem, (state, action) => {
+        return [...state.filter(item => item.id !== action.id)];
     })
  );
  

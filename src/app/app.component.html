@@ -3,7 +3,7 @@
     <div id="list">
       <h2>Shopping List</h2>
       <ul>
-        <li *ngFor="let shopping of shoppingItems$ | async">
+        <li *ngFor="let shopping of shoppingItems$ | async" (click)="deleteItem(shopping.id)">
           {{ shopping.name }}
         </li>
       </ul>

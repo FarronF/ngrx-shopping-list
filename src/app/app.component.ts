@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { addItem } from './store/actions/shopping.actions';
+import { addItem, deleteItem } from './store/actions/shopping.actions';
 import { AppState } from './store/models/app-state.model';
 import { ShoppingItem } from './store/models/shopping-item.model';
 import { v4 as uuid } from 'uuid';
@@ -27,5 +27,9 @@ export class AppComponent implements OnInit {
     this.newShoppingItem.id = uuid();
     this.store.dispatch(addItem({payload: this.newShoppingItem}));
     this.newShoppingItem = { id: '', name: '' }
+  }
+
+  deleteItem(id: string) {
+    this.store.dispatch(deleteItem({id: id}));
   }
 }
