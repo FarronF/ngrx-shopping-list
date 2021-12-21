@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { addItem } from './store/actions/shopping.actions';
 import { AppState } from './store/models/app-state.model';
 import { ShoppingItem } from './store/models/shopping-item.model';
+import { v4 as uuid } from 'uuid';
 
 @Component({
   selector: 'app-root',
@@ -13,15 +14,18 @@ import { ShoppingItem } from './store/models/shopping-item.model';
 export class AppComponent implements OnInit {
   title = 'ngrx-shopping-list';
   shoppingItems$: Observable<ShoppingItem[]>;
+  newShoppingItem: ShoppingItem = {id: '', name: ''};
+
   constructor(private store: Store<AppState>) {
     this.shoppingItems$ = this.store.select(store => store.shopping)
   }
 
   ngOnInit(): void {
-    setTimeout(() => this.addItem(), 3000)
   }
 
   addItem() {
-    this.store.dispatch(addItem({payload: {id: '7161d2c8-be0c-4f51-b767-938014a07e02', name:'Chopped Tomatoes'}}))
+    this.newShoppingItem.id = uuid();
+    this.store.dispatch(addItem({payload: this.newShoppingItem}));
+    this.newShoppingItem = { id: '', name: '' }
   }
 }
