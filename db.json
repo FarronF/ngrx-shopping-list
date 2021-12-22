@@ -1,8 +1,8 @@
 {
-    "shopping": [
-        {
-            "id": 1,
-            "name": "Chickpeas"
-        }
-    ]
+  "shopping": [
+    {
+      "id": "c8332cf7-11ac-4f60-8c9c-23e30bb3f223",
+      "name": "Chickpeas"
+    }
+  ]
 }
