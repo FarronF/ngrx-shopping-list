@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -18,7 +18,7 @@ import { ShoppingReducer } from './store/reducers/shopping.reducer';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClient,
+    HttpClientModule,
     StoreModule.forRoot({
       shopping: ShoppingReducer
     }),
