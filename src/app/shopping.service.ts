@@ -1,6 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
-import { delay } from 'rxjs';
+import { delay, Observable } from 'rxjs';
+
 import { ShoppingItem } from './store/models/shopping-item.model';
 
 @Injectable({
@@ -12,8 +13,9 @@ export class ShoppingService {
 
   constructor(private http: HttpClient) { }
 
-  getShoppingItems() {
-    return this.http.get(this.SHOPPING_URL).pipe(delay(this.DELAY_TIME));
+  getShoppingItems(): Observable<ShoppingItem[]> {
+    console.log('Faz - getShoppingItems');
+    return this.http.get<ShoppingItem[]>(this.SHOPPING_URL).pipe(delay(this.DELAY_TIME));
   }
 
   addShoppingItem(shoppingItem: ShoppingItem) {
