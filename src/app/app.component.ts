@@ -14,15 +14,18 @@ import { ShoppingItem } from './store/models/shopping-item.model';
 })
 export class AppComponent implements OnInit {
   title = 'ngrx-shopping-list';
-  shoppingItems$ = new Observable<ShoppingItem[]>();
+  shoppingItems$: Observable<ShoppingItem[]>;
   newShoppingItem: ShoppingItem = {id: '', name: ''};
-
+  loading$: Observable<boolean>
+  error$: Observable<Error | undefined>
   constructor(private store: Store<AppState>) {
-    
+    this.shoppingItems$ = this.store.select(store => store.shopping.list)
+    this.loading$ = this.store.select(store => store.shopping.loading)
+    this.error$ = this.store.select(store => store.shopping.error)
   }
 
   ngOnInit(): void {
-    this.shoppingItems$ = this.store.select(store => store.shopping)
+    
     this.store.dispatch(loadShopping());
   }
 
