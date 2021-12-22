@@ -23,7 +23,7 @@ export const addItem = createAction(
 
 export const addItemSuccess = createAction(
     '[SHOPPING] Add Item Success',
-    props<{items: ShoppingItem[]}>()
+    props<{item: ShoppingItem}>()
 );
 
 export const addItemFailure = createAction(

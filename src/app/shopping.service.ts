@@ -14,7 +14,6 @@ export class ShoppingService {
   constructor(private http: HttpClient) { }
 
   getShoppingItems(): Observable<ShoppingItem[]> {
-    console.log('Faz - getShoppingItems');
     return this.http.get<ShoppingItem[]>(this.SHOPPING_URL).pipe(delay(this.DELAY_TIME));
   }
 
@@ -23,6 +22,6 @@ export class ShoppingService {
   }
 
   deleteShoppingItem(id: string) {
-    return this.http.delete(`this.SHOPPING_URL/${id}`).pipe(delay(this.DELAY_TIME));
+    return this.http.delete(`${this.SHOPPING_URL}/${id}`).pipe(delay(this.DELAY_TIME));
   }
 }

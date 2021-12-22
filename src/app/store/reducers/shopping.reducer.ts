@@ -30,7 +30,7 @@ const reducer = createReducer(
     return { ...state, loading: true };
   }),
   on(ShoppingActions.addItemSuccess, (state, action) => {
-    return { ...state, list: action.items, loading: false };
+    return { ...state, list: [...state.list, action.item], loading: false };
   }),
   on(ShoppingActions.addItemFailure, (state, action) => {
     return { ...state, loading: false, error: action.error };
